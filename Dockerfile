@@ -1,9 +1,11 @@
 FROM openjdk:17
 
+RUN mkdir /app
 
+WORKDIR /app
 
-ADD target/springrest-0.0.1-SNAPSHOT.jar springrest.jar
+COPY target/springrest-0.0.1-SNAPSHOT.jar /app
 
 EXPOSE 8082
 
-ENTRYPOINT ["java", "-jar", "springrest.jar"]
+ENTRYPOINT ["java", "-jar", "springrest-0.0.1-SNAPSHOT.jar"]
